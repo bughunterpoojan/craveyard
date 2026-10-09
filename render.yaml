@@ -4,7 +4,7 @@ services:
     runtime: python
     rootDir: backend
     plan: free
-    buildCommand: "./build.sh"
+    buildCommand: "chmod +x ./build.sh && ./build.sh"
     startCommand: "gunicorn craveyard.wsgi:application"
     envVars:
       - key: PYTHON_VERSION
