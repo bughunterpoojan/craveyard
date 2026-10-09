@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: craveyard-backend
+    runtime: python
+    rootDir: backend
+    plan: free
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn craveyard.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: DJANGO_SETTINGS_MODULE
+        value: craveyard.settings
+      - key: ALLOWED_HOSTS
+        value: "*"
