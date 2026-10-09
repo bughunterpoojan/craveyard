@@ -3,14 +3,8 @@
 set -o errexit
 
 echo "==> Installing dependencies..."
-if command -v uv &> /dev/null; then
-    echo "Using uv package installer..."
-    uv pip install --system -r requirements.txt
-else
-    echo "Using standard pip..."
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
-fi
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 
 echo "==> Collecting static files..."
 python manage.py collectstatic --no-input
